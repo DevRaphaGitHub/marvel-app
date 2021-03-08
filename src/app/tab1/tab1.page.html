@@ -1,17 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title *ngFor="let hero of heroes">
-      {{ hero.code }}
+    <ion-title>
+      Heroes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let hero of heroes">
-      {{ hero }}
-    </ion-item>
-  </ion-list>
-</ion-content>
-
-<app-explore-container name="Heroes"></app-explore-container>
+<div class="content">
+  <ion-card class="card" *ngFor="let hero of heroes">
+    <ion-card-header>
+      <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" />
+      <!-- <img [src]="hero.thumbnail.path" /> -->
+      <ion-card-title>{{ hero.name }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ hero.description }}
+    </ion-card-content>
+  </ion-card>
+</div>

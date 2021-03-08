@@ -15,7 +15,7 @@ export class Tab1Page implements OnInit {
   ngOnInit() {
     this.service.getData().subscribe(
       heroes => {
-        this.heroes = heroes[0];
+        this.heroes = heroes.data.results;
         console.log(heroes);
       }
     );
