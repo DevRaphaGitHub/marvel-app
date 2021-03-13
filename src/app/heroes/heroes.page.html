@@ -7,6 +7,7 @@
 </ion-header>
 
 <div class="content">
+  <ion-spinner *ngIf="!heroes" name="crescent" class="spinner"></ion-spinner>  
   <ion-card class="card" *ngFor="let hero of heroes">
     <ion-card-header>
       <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" />

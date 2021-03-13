@@ -20,6 +20,11 @@ const routes: Routes = [
         loadChildren: () => import('../movies/movies.module').then(m => m.MoviesPageModule)
       },
       {
+        path: '',
+        redirectTo: '/heroes',
+        pathMatch: 'full'
+      },
+      {
         path: 'tab1',
         redirectTo: '/heroes',
         pathMatch: 'full'
