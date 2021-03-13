@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeroesService } from './heroes.service';
+import { ApiService } from '../api/api.service';
 
 @Component({
   selector: 'heroes',
@@ -12,13 +12,12 @@ export class HeroesPage implements OnInit {
 
   bio: boolean = false;
 
-  constructor(private service: HeroesService) {}
+  constructor(private service: ApiService) {}
 
   ngOnInit() {
-    this.service.getData().subscribe(
+    this.service.getHeroes().subscribe(
       heroes => {
         this.heroes = heroes.data.results;
-        console.log(heroes);
       }
     );
   }
