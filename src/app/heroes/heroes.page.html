@@ -10,10 +10,12 @@
   <ion-card class="card" *ngFor="let hero of heroes">
     <ion-card-header>
       <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" />
-      <!-- <img [src]="hero.thumbnail.path" /> -->
-      <ion-card-title>{{ hero.name }}</ion-card-title>
+      <div class="card-title">
+        <ion-card-title>{{ hero.name }}</ion-card-title>
+        <ion-icon size="small" name="chevron-down-outline" class="icon-button" (click)="toggleBio()"></ion-icon>
+      </div>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content *ngIf="bio">
       {{ hero.description }}
     </ion-card-content>
   </ion-card>
