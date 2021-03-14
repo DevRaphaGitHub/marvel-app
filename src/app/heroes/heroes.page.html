@@ -6,18 +6,28 @@
   </ion-toolbar>
 </ion-header>
 
-<div class="content">
-  <ion-spinner *ngIf="!heroes" name="crescent" class="spinner"></ion-spinner>  
+<ion-spinner *ngIf="!heroes" name="crescent" class="spinner"></ion-spinner>  
+
+<div *ngIf="screenWidth > 768" class="content-desktop">
   <ion-card class="card" *ngFor="let hero of heroes">
-    <ion-card-header>
-      <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" />
+    <ion-card-header style="padding: 0;">
+      <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" class="img-desktop" />
       <div class="card-title">
-        <ion-card-title>{{ hero.name }}</ion-card-title>
-        <ion-icon size="small" name="chevron-down-outline" class="icon-button" (click)="toggleBio()"></ion-icon>
+        <ion-card-subtitle class="title">{{ hero.name }}</ion-card-subtitle>
+        <ion-button (click)="showModal()" fill="clear" class="button">Detalhes</ion-button>
       </div>
     </ion-card-header>
-    <ion-card-content *ngIf="bio">
-      {{ hero.description }}
-    </ion-card-content>
+  </ion-card>
+</div>
+
+<div *ngIf="screenWidth <= 768" class="content-mobile">
+  <ion-card class="card-mobile" *ngFor="let hero of heroes">
+    <ion-card-header class="header-mobile">
+      <div class="header-title">
+        <img src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}" class="img-mobile" />
+        <ion-card-title class="title">{{ hero.name }}</ion-card-title>
+      </div>
+      <ion-card-subtitle class="bio">{{ hero.description }}</ion-card-subtitle>
+    </ion-card-header>
   </ion-card>
 </div>

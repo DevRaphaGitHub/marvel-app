@@ -1,35 +1,108 @@
-.content {
+.content-desktop {
   display: flex;
   flex-wrap: wrap;
-  overflow-x: scroll;
-}
-
-.card {
-  max-width: 15%;
+  overflow-x: hidden;
   overflow-y: scroll;
 
-  @media(max-width: 768px) {
-    max-width: 100%;
-  }
-
-  img {
-    width: 100%;
-    height: 170px;
-  }
-
-  .card-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .icon-button {
-      padding: 5px;
-      cursor: pointer;
+  .card {
+    transition: ease-out 0.5s;
+    max-width: 11.5%;
+    margin: 10px 0 0 10px;
+    overflow-y: hidden;
+    cursor: pointer;
+  
+    .img-desktop {
+      width: 100%;
+      height: 200px;
     }
-    .icon-button:hover {
-      border-radius: 50%;
+  
+    .card-title {
+      transition: ease-out 0.5s;
+      width: 100%;
+      height: 0;
+      position: absolute;
+      bottom: 0;
       padding: 5px;
-      background-color: rgba(#fff, 0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  
+      .title {
+        transition: ease-out 0.5s;
+        color: transparent;
+      }
+  
+      .button {
+        transition: ease-out 0.5s;
+        color: transparent;
+      }
+    }
+  }
+  .card:hover {
+    transition: ease-in 0.5s;
+    filter: grayscale(100%);
+    .card-title {
+      transition: ease-in 0.5s;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba($color: #000000, $alpha: 0.5);
+  
+      .title {
+        transition: ease-in 0.5s;
+        color: white;
+      }
+  
+      .button {
+        transition: ease-in 0.5s;
+        color: white;
+      }
+    }
+  }
+}
+
+.content-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  padding-bottom: 10px;
+
+  .card-mobile {
+    width: 100%;
+    margin: 10px 10px 0 10px;
+    overflow-y: hidden;
+  
+    .img-mobile {
+      width: 25%;
+      height: 25%;
+      border-radius: 3px;
+    }
+  
+    .header-mobile {
+      display: flex;
+      flex-direction: column;
+
+      .header-title {
+        display: flex;
+
+        .title {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1rem;
+          color: white;
+        }
+      }
     }
   }
 }
@@ -42,8 +115,12 @@
   left: 50%;
   margin-top:-50px;
   margin-left:-50px;
-}
+  z-index: 10;
 
-::-webkit-scrollbar {
-  display: none;
+  @media(max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    margin-top:-25px;
+    margin-left:-25px;
+  }
 }
