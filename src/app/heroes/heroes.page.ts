@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { ModalDetailsComponent } from '../components/modal-details/modal-details.component';
+// import { ModalDetailsComponent } from '../components/modal-details/modal-details.component';
 import { ApiService } from '../api/api.service';
 
 @Component({
@@ -22,12 +22,12 @@ export class HeroesPage implements OnInit {
     );
   }
 
-  async showModal() {
-    const modal = await this.modalDetails.create({
-      component: ModalDetailsComponent,
-      cssClass: 'modal-class'
-    });
+  // async showModal() {
+  //   const modal = await this.modalDetails.create({
+  //     component: ModalDetailsComponent,
+  //     cssClass: 'modal-class'
+  //   });
 
-    await modal.present();
-  }
+  //   await modal.present();
+  // }
 }
